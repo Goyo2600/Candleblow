@@ -1,4 +1,4 @@
-# Candleblow
+# Candleblow-PL360G55CF-EK Alpha version
 Sniffing firmware for Microchip's PL360G55CF-EK evaluation kit, to use in conjunction with [PLCTool](https://github.com/TarlogicSecurity/PLCTool).
 
 ## Requirements 
