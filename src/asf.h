@@ -52,27 +52,15 @@
  * running the ASF driver selector tool. Any changes will be discarded.
  */
 
-// From module: AES - Advanced Encryption Standard Module
-#include <aes.h>
-
-// From module: ATPL360MB LED support enabled
-#include <led.h>
-
 // From module: Common SAM compiler driver
 #include <compiler.h>
 #include <status_codes.h>
 
-// From module: Delay routines
-#include <delay.h>
-
-// From module: Display - c0216CiZ LCD Controller (I2C)
-#include <c0216CiZ.h>
-
 // From module: EEFC - Enhanced Embedded Flash Controller
 #include <efc.h>
 
-// From module: Flash - SAM Flash Service API
-#include <flash_efc.h>
+// From module: FLEXCOM - Flexible Serial Communication Controller
+#include <flexcom.h>
 
 // From module: FreeRTOS mini Real-Time Kernel
 #include <FreeRTOS.h>
@@ -87,6 +75,15 @@
 #include <semphr.h>
 #include <task.h>
 #include <timers.h>
+
+// From module: PL360G55CF_EK LED support enabled
+#include <led.h>
+
+// From module: Delay routines
+#include <delay.h>
+
+// From module: EEFC - Enhanced Embedded Flash Controller
+#include <flash_efc.h>
 
 // From module: GPBR - General Purpose Backup Register
 #include <gpbr.h>
@@ -103,16 +100,8 @@
 // From module: Interrupt management - SAM implementation
 #include <interrupt.h>
 
-// From module: Multiprotocol PLC Host Driver
-#include <atpl360.h>
-#include <atpl360_IB_db.h>
-#include <atpl360_boot.h>
-#include <atpl360_comm.h>
-#include <atpl360_exception.h>
-#include <general_defs.h>
-
-// From module: PDC - Peripheral DMA Controller Example
-#include <pdc.h>
+// From module: MATRIX - Bus Matrix
+#include <matrix.h>
 
 // From module: PIO - Parallel Input/Output Controller
 #include <pio.h>
@@ -121,18 +110,14 @@
 #include <pmc.h>
 #include <sleep.h>
 
-// From module: PRIME Hardware Abstraction Layer include
-#include <hal.h>
-#include <hal_regions.h>
-
 // From module: Part identification macros
 #include <parts.h>
 
 // From module: RSTC - Reset Controller
 #include <rstc.h>
 
-// From module: SPI - Serial Peripheral Interface
-#include <spi.h>
+// From module: SAM FPU driver
+#include <fpu.h>
 
 // From module: SUPC - Supply Controller
 #include <supc.h>
@@ -144,32 +129,27 @@
 // From module: Standard serial I/O (stdio) - SAM implementation
 #include <stdio_serial.h>
 
-// From module: System Clock Control - SAM4CM implementation
+// From module: System Clock Control - SAMG implementation
 #include <sysclk.h>
 
 // From module: TC - Timer Counter
 #include <tc.h>
 
-// From module: TRNG - True Random Number Generator Register
-#include <trng.h>
-
-// From module: TWI - Two-Wire Interface - SAM implementation
-#include <sam_twi/twi_master.h>
-#include <sam_twi/twi_slave.h>
-#include <twi_master.h>
-#include <twi_slave.h>
-
-// From module: TWI - Two-wire Interface
-#include <twi.h>
-
-// From module: UART - Univ. Async Rec/Trans
-#include <uart.h>
-
-// From module: USART - Serial interface - SAM implementation for devices with both UART and USART
+// From module: USART - Serial interface - SAM implementation for devices with only USART
 #include <serial.h>
 
 // From module: USART - Univ. Syn Async Rec/Trans
 #include <usart.h>
+
+// From module: USB CDC Protocol
+#include <usb_protocol_cdc.h>
+
+// From module: USB Device CDC (Single Interface Device)
+#include <udi_cdc.h>
+
+// From module: USB Device Stack Core (Common API)
+#include <udc.h>
+#include <udd.h>
 
 // From module: WDT - Watchdog Timer
 #include <wdt.h>

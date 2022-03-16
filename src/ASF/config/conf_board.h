@@ -56,13 +56,13 @@
 
 /* Configure UART0 pins */
 #define CONF_BOARD_UART_CONSOLE
-#define CONF_BOARD_UART0
+//#define CONF_BOARD_UART0
 
 /* Enable LCD */
-#define CONF_BOARD_LCD_EN
+//#define CONF_BOARD_LCD_EN
 
 /* Configure console UART */
-#define CONSOLE_UART                     UART1
-#define CONSOLE_UART_ID                  ID_UART1
+#define CONSOLE_UART                     USART4
+#define CONSOLE_UART_ID                  ID_FLEXCOM4
 
 #endif /* CONF_BOARD_H_INCLUDED */

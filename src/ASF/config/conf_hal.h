@@ -3,7 +3,7 @@
  *
  * \brief CONF_HAL: Hardware Abstraction Layer (HAL) configuration.
  *
- * Copyright (c) 2017 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2018 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -59,49 +59,15 @@
 #define DISABLE_RESET_HANDLING
 #define DISABLE_PIB_HANDLING
 
-/* UART  */
-/** Timers Configuration */
-#define HAL_ID_TC_UART                 ID_TC5
-#define HAL_TC_UART                    TC1
-#define HAL_TC_UART_CHN                2
-#define HAL_TC_UART_Handler            TC5_Handler
-#define HAL_TC_UART_IRQn               TC5_IRQn
-#define HAL_UART0_Handler              UART0_Handler
-
-/** Configuration Size Buffers */
-#define HAL_RX_UART_BUF0_SIZE          1024
-#define HAL_TX_UART_BUF0_SIZE          1024
-
-#define HAL_RX_UART_BUF1_SIZE          1024
-#define HAL_TX_UART_BUF1_SIZE          1024
-
-/* USART */
-/** Timers Configuration */
-#define HAL_ID_TC_USART                ID_TC4
-#define HAL_TC_USART                   TC1
-#define HAL_TC_USART_CHN               1
-#define HAL_TC_USART_IRQn              TC4_IRQn
-#define HAL_TC_USART_Handler           TC4_Handler
-#define HAL_USART0_Handler             USART0_Handler
-#define HAL_USART1_Handler             USART1_Handler
-#define HAL_USART2_Handler             USART2_Handler
-
-/** Configuration Size Buffers */
-#define HAL_RX_USART_BUF0_SIZE         1024
-#define HAL_TX_USART_BUF0_SIZE         1024
-
-#define HAL_RX_USART_BUF1_SIZE         1024
-#define HAL_TX_USART_BUF1_SIZE         1024
-
-#define HAL_RX_USART_BUF2_SIZE         1024
-#define HAL_TX_USART_BUF2_SIZE         1024
+/* Enable network recovery */
+/* #define HAL_NWK_RECOVERY_INTERFACE */
 
 /* PLC */
 /* Select the SPI module that PLC is connected to */
-#define HAL_PLC_SPI_MODULE             SPI0
+#define HAL_PLC_SPI_MODULE             SPI0//ATPL360_SPI
 
 /* Chip select used by PLC internal peripheral  */
-#define HAL_PLC_CS                     0
+#define HAL_PLC_CS                     0//ATPL360_SPI_CS
 
 /* SPI polarity by PLC internal peripheral  */
 #define HAL_PLC_POL                    0
@@ -129,12 +95,12 @@
 /* GP Timers */
 /* GP Timer 0 is reserved for the PLC PHY driver and therefore, its callback */
 /* should not be used here. */
-/* #define HAL_GP_TIMER_PLC_Handler       TC0_Handler    */
-/* #define HAL_GP_TIMER_PLC_IRQn          TC0_IRQn       */
-/* #define HAL_GP_TIMER_1_Handler         TC1_Handler    */
-/* #define HAL_GP_TIMER_1_IRQn            TC1_IRQn       */
-/* #define HAL_GP_TIMER_2_Handler         TC2_Handler    */
-/* #define HAL_GP_TIMER_2_IRQn            TC2_IRQn       */
+//#define HAL_GP_TIMER_PLC_Handler       TC0_Handler
+//#define HAL_GP_TIMER_PLC_IRQn          TC0_IRQn
+//#define HAL_GP_TIMER_1_Handler         TC1_Handler
+//#define HAL_GP_TIMER_1_IRQn            TC1_IRQn
+//#define HAL_GP_TIMER_2_Handler         TC2_Handler
+//#define HAL_GP_TIMER_2_IRQn            TC2_IRQn
 /* #define HAL_GP_TIMER_3_Handler         TC3_Handler */
 /* #define HAL_GP_TIMER_3_IRQn            TC3_IRQn */
 /* GP Timers 4 and 5 are reserved for the UART and USART drivers */
@@ -143,4 +109,70 @@
 /* #define HAL_GP_TIMER_4_IRQn          TC4_IRQn    */
 /* #define HAL_GP_TIMER_5_Handler       TC5_Handler */
 /* #define HAL_GP_TIMER_5_IRQn          TC5_IRQn    */
+
+
+/* UART  */
+/** Timers Configuration */
+#define HAL_ID_TC_UART                 ID_TC5
+#define HAL_TC_UART                    TC1
+#define HAL_TC_UART_CHN                2
+#define HAL_TC_UART_Handler            TC5_Handler
+#define HAL_TC_UART_IRQn               TC5_IRQn
+#define HAL_UART0_Handler              UART0_Handler
+
+/* USART 0 */
+#define ID_USART0                      ID_FLEXCOM0
+#define USART0_IRQn                    FLEXCOM0_IRQn
+#define HAL_USART0_Handler             FLEXCOM0_Handler//USART0_Handler
+
+/* USART 1 */
+#define ID_USART1                      ID_FLEXCOM1
+#define USART1_IRQn                    FLEXCOM1_IRQn
+#define HAL_USART1_Handler             FLEXCOM1_Handler//USART1_Handler
+
+/* USART 2 */
+#define ID_USART2                      ID_FLEXCOM2
+#define USART2_IRQn                    FLEXCOM2_IRQn
+#define HAL_USART2_Handler             FLEXCOM2_Handler//USART2_Handler
+
+/* USART 3 */
+#define ID_USART3                      ID_FLEXCOM3
+#define USART3_IRQn                    FLEXCOM3_IRQn
+#define HAL_USART3_Handler             FLEXCOM3_Handler
+
+/* USART 4 */
+#define ID_USART4                      ID_FLEXCOM4
+#define USART4_IRQn                    FLEXCOM4_IRQn
+#define HAL_USART4_Handler             FLEXCOM4_Handler
+
+/** Timers Configuration */
+#define HAL_ID_TC_USART                ID_TC4
+#define HAL_TC_USART                   TC1
+#define HAL_TC_USART_CHN               1
+#define HAL_TC_USART_IRQn              TC4_IRQn
+#define HAL_TC_USART_Handler           TC4_Handler
+
+
+/** Configuration Size Buffers */
+#define HAL_RX_USART_BUF0_SIZE         1024
+#define HAL_TX_USART_BUF0_SIZE         1024
+
+/** Configuration Size Buffers */
+#define HAL_RX_USART_BUF1_SIZE         1024
+#define HAL_TX_USART_BUF1_SIZE         1024
+
+/** Configuration Size Buffers */
+#define HAL_RX_USART_BUF2_SIZE         1024
+#define HAL_TX_USART_BUF2_SIZE         1024
+
+/** Configuration Size Buffers */
+#define HAL_RX_USART_BUF3_SIZE         1024
+#define HAL_TX_USART_BUF3_SIZE         1024
+
+/** Configuration Size Buffers */
+#define HAL_RX_USART_BUF4_SIZE         1024
+#define HAL_TX_USART_BUF4_SIZE         1024
+
+#define CONFIG_USBCLK_SOURCE        USBCLK_SRC_PLL1
+#define CONFIG_USBCLK_DIV           1
 #endif  /* CONF_HAL_H_INCLUDE */

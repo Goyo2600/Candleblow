@@ -51,19 +51,23 @@ on_phy_data(void *data, const uint8_t *buffer, size_t size)
 void
 app_entry(struct tx_task *tt)
 { 
-  lcd_puts(0, "UART...");
-  lcd_printf(1, "SPIP@%ld bd", CONSOLE_BAUDRATE);
+//  lcd_puts(0, "UART...");
+//  lcd_printf(1, "SPIP@%ld bd", CONSOLE_BAUDRATE);
   
   spip_uart_interface_init(&si);
   
-  lcd_puts(0, "PHY RX...");
+//  lcd_puts(0, "PHY RX...");
   phy_set_rx_handler(on_phy_data, NULL);
   
   LED_Off(LED0);
   LED_Off(LED1);
   
-  lcd_puts(0, "Probe ready! :)");
+  LED_On(LED0);
+  
+//  lcd_puts(0, "Probe ready! :)");
   spip_iface_board_loop(&si, tt);
-  lcd_puts(0, "HANG!!");
+//  lcd_puts(0, "HANG!!");
+  LED_Off(LED0);
+  LED_Off(LED1);
   hang();
 }

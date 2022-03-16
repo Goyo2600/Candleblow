@@ -116,6 +116,7 @@ void uart_enable_tx(Uart *p_uart)
 {
 	/* Enable transmitter */
 	p_uart->UART_CR = UART_CR_TXEN;
+
 }
 
 /**

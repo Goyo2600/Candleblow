@@ -11,20 +11,22 @@
       <framework-data>
         <options>
           <option id="common.boards" value="Add" config="" content-id="Atmel.ASF" />
-          <option id="common.components.plc.atpl360" value="Add" config="prime_b" content-id="Atmel.ASF" />
-          <option id="common.components.plc.atpl360.addons.serial_if" value="Add" config="prime" content-id="Atmel.ASF" />
           <option id="common.services.basic.gpio" value="Add" config="" content-id="Atmel.ASF" />
           <option id="common.services.ioport" value="Add" config="" content-id="Atmel.ASF" />
           <option id="common.utils.stdio.stdio_serial" value="Add" config="" content-id="Atmel.ASF" />
-          <option id="sam.components.display.c0216ciz" value="Add" config="" content-id="Atmel.ASF" />
+          <option id="sam.drivers.flexcom" value="Add" config="" content-id="Atmel.ASF" />
           <option id="sam.drivers.gpbr" value="Add" config="" content-id="Atmel.ASF" />
           <option id="sam.drivers.rstc" value="Add" config="" content-id="Atmel.ASF" />
           <option id="sam.drivers.supc" value="Add" config="" content-id="Atmel.ASF" />
           <option id="sam.drivers.tc" value="Add" config="" content-id="Atmel.ASF" />
-          <option id="sam.drivers.trng" value="Add" config="" content-id="Atmel.ASF" />
           <option id="sam.drivers.wdt" value="Add" config="" content-id="Atmel.ASF" />
-          <option id="sam.utils.cmsis.sam4cm.source.template" value="Add" config="" content-id="Atmel.ASF" />
           <option id="thirdparty.os.freertos.version" value="Add" config="7.3.0" content-id="Atmel.ASF" />
+          <option id="common.services.usb.class.device" value="Add" config="cdc" content-id="Atmel.ASF" />
+          <option id="common.components.plc.atpl360" value="Add" config="prime_b" content-id="Atmel.ASF" />
+          <option id="common.components.plc.atpl360.addons.serial_if" value="Add" config="prime" content-id="Atmel.ASF" />
+          <option id="sam.components.display.c0216ciz" value="Add" config="" content-id="Atmel.ASF" />
+          <option id="sam.drivers.trng" value="Add" config="" content-id="Atmel.ASF" />
+          <option id="sam.utils.cmsis.sam4cm.source.template" value="Add" config="" content-id="Atmel.ASF" />
           <option id="thirdparty.prime_ng.hal" value="Add" config="" content-id="Atmel.ASF" />
           <option id="thirdparty.prime_ng.phy.atpl360.apps.phy_tx_test_console" value="Add" config="" content-id="Atmel.ASF" />
         </options>
@@ -38,6 +40,11 @@
           <configuration key="config.compiler.iarewarm.input_image_symbol" value="atpl_bin" default="atpl_bin" content-id="Atmel.ASF" />
           <configuration key="config.compiler.as5_arm.create_aux" value="no" default="no" content-id="Atmel.ASF" />
           <configuration key="config.compiler.iarewarm.create_aux" value="no" default="no" content-id="Atmel.ASF" />
+          <configuration key="config.compiler.armgcc.fpu_used" value="yes" default="yes" content-id="Atmel.ASF" />
+          <configuration key="config.compiler.armgcc.printf" value="iprintf" default="iprintf" content-id="Atmel.ASF" />
+          <configuration key="config.compiler.armgcc.scanf" value="iscanf" default="iscanf" content-id="Atmel.ASF" />
+          <configuration key="config.sam.pio.pio_handler" value="yes" default="yes" content-id="Atmel.ASF" />
+          <configuration key="config.sam.drivers.udp.device.sleepmgr" value="with_sleepmgr" default="with_sleepmgr" content-id="Atmel.ASF" />
         </configurations>
         <files>
           <file path="src/ASF/atpl/bin/ATPL360B_PRIME.bin" framework="" version="" source="atpl/bin/ATPL360B_PRIME.bin" changed="False" content-id="Atmel.ASF" />
@@ -304,17 +311,35 @@
           <file path="src/config/conf_sleepmgr.h" framework="" version="" source="thirdparty/prime_ng/phy/atpl360/apps/phy_tx_test_console/sam4cms16c_atpl360mb/conf_sleepmgr.h" changed="False" content-id="Atmel.ASF" />
           <file path="src/config/conf_uart_serial.h" framework="" version="" source="thirdparty/prime_ng/phy/atpl360/apps/phy_tx_test_console/sam4cms16c_atpl360mb/conf_uart_serial.h" changed="False" content-id="Atmel.ASF" />
           <file path="src/ASF/thirdparty/prime_ng/phy/atpl360/apps/phy_tx_test_console/sam4cms16c_atpl360mb/conf_usi.h" framework="" version="" source="thirdparty/prime_ng/phy/atpl360/apps/phy_tx_test_console/sam4cms16c_atpl360mb/conf_usi.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam/drivers/matrix/matrix.c" framework="" version="3.44.1" source="sam\drivers\matrix\matrix.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam/drivers/matrix/matrix.h" framework="" version="3.44.1" source="sam\drivers\matrix\matrix.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/common/services/usb/usb_atmel.h" framework="" version="3.44.1" source="common\services\usb\usb_atmel.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/common/services/usb/usb_protocol.h" framework="" version="3.44.1" source="common\services\usb\usb_protocol.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/common/services/usb/class/cdc/usb_protocol_cdc.h" framework="" version="3.44.1" source="common\services\usb\class\cdc\usb_protocol_cdc.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/common/services/usb/class/cdc/device/udi_cdc.c" framework="" version="3.44.1" source="common\services\usb\class\cdc\device\udi_cdc.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/common/services/usb/class/cdc/device/udi_cdc_desc.c" framework="" version="3.44.1" source="common\services\usb\class\cdc\device\udi_cdc_desc.c" changed="False" content-id="Atmel.ASF" />
+          <file path="atmel_devices_cdc.cat" framework="" version="3.44.1" source="common\services\usb\class\cdc\device\atmel_devices_cdc.cat" changed="False" content-id="Atmel.ASF" />
+          <file path="atmel_devices_cdc.inf" framework="" version="3.44.1" source="common\services\usb\class\cdc\device\atmel_devices_cdc.inf" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/common/services/usb/class/cdc/device/udi_cdc.h" framework="" version="3.44.1" source="common\services\usb\class\cdc\device\udi_cdc.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/common/services/usb/class/cdc/device/udi_cdc_conf.h" framework="" version="3.44.1" source="common\services\usb\class\cdc\device\udi_cdc_conf.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/common/services/usb/udc/udc.c" framework="" version="3.44.1" source="common\services\usb\udc\udc.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/common/services/usb/udc/udc.h" framework="" version="3.44.1" source="common\services\usb\udc\udc.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/common/services/usb/udc/udd.h" framework="" version="3.44.1" source="common\services\usb\udc\udd.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/common/services/usb/udc/udc_desc.h" framework="" version="3.44.1" source="common\services\usb\udc\udc_desc.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/common/services/usb/udc/udi.h" framework="" version="3.44.1" source="common\services\usb\udc\udi.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam/drivers/udp/udp_device.c" framework="" version="3.44.1" source="sam\drivers\udp\udp_device.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam/drivers/udp/udp_device.h" framework="" version="3.44.1" source="sam\drivers\udp\udp_device.h" changed="False" content-id="Atmel.ASF" />
         </files>
         <documentation help="http://asf.atmel.com/docs/3.45.0/thirdparty.prime_ng.phy.atpl360.apps.phy_tx_test_console.sam4cms16c_atpl360mb/html/index.html" />
         <offline-documentation help="" />
         <dependencies>
-          <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.39.0" />
+          <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.44.1" />
         </dependencies>
         <project id="thirdparty.prime_ng.phy.atpl360.apps.phy_tx_test_console.sam4cms16c_atpl360mb" value="Add" config="" content-id="Atmel.ASF" />
         <board id="board.atpl360mb" value="Add" config="" content-id="Atmel.ASF" />
       </framework-data>
     </AsfFrameworkConfig>
-    <avrdevice>ATSAM4CMS16C:0</avrdevice>
+    <avrdevice>ATSAMG55J19</avrdevice>
     <avrdeviceseries>sam4cm</avrdeviceseries>
     <Language>C</Language>
     <ToolchainName>com.Atmel.ARMGCC.C</ToolchainName>
@@ -336,7 +361,8 @@
     <ResetRule>0</ResetRule>
     <eraseonlaunchrule>0</eraseonlaunchrule>
     <EraseKey />
-    <avrtool>com.atmel.avrdbg.tool.samice</avrtool>
+    <avrtool>
+    </avrtool>
     <avrtoolserialnumber>4294967295</avrtoolserialnumber>
     <avrdeviceexpectedsignature>0xA64C0CE2</avrdeviceexpectedsignature>
     <com_atmel_avrdbg_tool_samice>
@@ -380,6 +406,7 @@
       <Value>__SAM4CMS16C_0__</Value>
       <Value>printf=iprintf</Value>
       <Value>scanf=iscanf</Value>
+      <Value>UDD_ENABLE</Value>
     </ListValues>
   </armgcc.compiler.symbols.DefSymbols>
   <armgcc.compiler.directories.IncludePaths>
@@ -433,6 +460,13 @@
       <Value>../src/ASF/thirdparty/freertos/freertos-7.3.0/source/portable/gcc/sam</Value>
       <Value>../src/ASF/thirdparty/prime_ng/hal</Value>
       <Value>../src</Value>
+      <Value>../src/ASF/sam/drivers/matrix</Value>
+      <Value>../src/ASF/common/services/usb</Value>
+      <Value>../src/ASF/common/services/usb/class/cdc</Value>
+      <Value>../src/Config</Value>
+      <Value>../src/ASF/common/services/usb/class/cdc/device</Value>
+      <Value>../src/ASF/common/services/usb/udc</Value>
+      <Value>../src/ASF/sam/drivers/udp</Value>
     </ListValues>
   </armgcc.compiler.directories.IncludePaths>
   <armgcc.compiler.optimization.level>Optimize for size (-Os)</armgcc.compiler.optimization.level>
@@ -504,9 +538,16 @@
       <Value>../src/ASF/thirdparty/freertos/freertos-7.3.0/source/portable/gcc/sam</Value>
       <Value>../src/ASF/thirdparty/hal</Value>
       <Value>../src</Value>
+      <Value>../src/ASF/sam/drivers/matrix</Value>
+      <Value>../src/ASF/common/services/usb</Value>
+      <Value>../src/ASF/common/services/usb/class/cdc</Value>
+      <Value>../src/Config</Value>
+      <Value>../src/ASF/common/services/usb/class/cdc/device</Value>
+      <Value>../src/ASF/common/services/usb/udc</Value>
+      <Value>../src/ASF/sam/drivers/udp</Value>
     </ListValues>
   </armgcc.assembler.general.IncludePaths>
-  <armgcc.preprocessingassembler.general.AssemblerFlags>-DARM_MATH_CM4=true -DBOARD=ATPL360MB -D__ATPL360B__ -D__FREERTOS__ -D__SAM4CMS16C_0__ -Dprintf=iprintf -Dscanf=iscanf</armgcc.preprocessingassembler.general.AssemblerFlags>
+  <armgcc.preprocessingassembler.general.AssemblerFlags>-DARM_MATH_CM4=true -DBOARD=ATPL360MB -D__ATPL360B__ -D__FREERTOS__ -D__SAM4CMS16C_0__ -Dprintf=iprintf -Dscanf=iscanf -DUDD_ENABLE</armgcc.preprocessingassembler.general.AssemblerFlags>
   <armgcc.preprocessingassembler.general.IncludePaths>
     <ListValues>
       <Value>.</Value>
@@ -558,6 +599,13 @@
       <Value>../src/ASF/thirdparty/freertos/freertos-7.3.0/source/portable/gcc/sam</Value>
       <Value>../src/ASF/thirdparty/hal</Value>
       <Value>../src</Value>
+      <Value>../src/ASF/sam/drivers/matrix</Value>
+      <Value>../src/ASF/common/services/usb</Value>
+      <Value>../src/ASF/common/services/usb/class/cdc</Value>
+      <Value>../src/Config</Value>
+      <Value>../src/ASF/common/services/usb/class/cdc/device</Value>
+      <Value>../src/ASF/common/services/usb/udc</Value>
+      <Value>../src/ASF/sam/drivers/udp</Value>
     </ListValues>
   </armgcc.preprocessingassembler.general.IncludePaths>
 </ArmGcc>
@@ -581,12 +629,13 @@
   <armgcc.compiler.symbols.DefSymbols>
     <ListValues>
       <Value>ARM_MATH_CM4=true</Value>
-      <Value>BOARD=ATPL360MB</Value>
+      <Value>BOARD=PL360G55CF_EK</Value>
       <Value>__ATPL360B__</Value>
       <Value>__FREERTOS__</Value>
-      <Value>__SAM4CMS16C_0__</Value>
+      <Value>__SAMG55J19__</Value>
       <Value>printf=iprintf</Value>
       <Value>scanf=iscanf</Value>
+      <Value>UDD_ENABLE</Value>
     </ListValues>
   </armgcc.compiler.symbols.DefSymbols>
   <armgcc.compiler.directories.IncludePaths>
@@ -599,6 +648,7 @@
       <Value>../src/ASF/common/components/plc/atpl360/addons</Value>
       <Value>../src/ASF/common/components/plc/atpl360/addons/serial_if</Value>
       <Value>../src/ASF/common/services/clock</Value>
+      <Value>../src/ASF/common/services/clock/samg</Value>
       <Value>../src/ASF/common/services/delay</Value>
       <Value>../src/ASF/common/services/gpio</Value>
       <Value>../src/ASF/common/services/ioport</Value>
@@ -611,6 +661,7 @@
       <Value>../src/ASF/sam/boards</Value>
       <Value>../src/ASF/sam/boards/atpl360mb</Value>
       <Value>../src/ASF/sam/components/display/c0216CiZ</Value>
+      <Value>../src/ASF/sam/drivers/flexcom</Value>
       <Value>../src/ASF/sam/drivers/aes</Value>
       <Value>../src/ASF/sam/drivers/efc</Value>
       <Value>../src/ASF/sam/drivers/gpbr</Value>
@@ -625,13 +676,13 @@
       <Value>../src/ASF/sam/drivers/tc</Value>
       <Value>../src/ASF/sam/drivers/trng</Value>
       <Value>../src/ASF/sam/drivers/twi</Value>
-      <Value>../src/ASF/sam/drivers/uart</Value>
       <Value>../src/ASF/sam/drivers/usart</Value>
       <Value>../src/ASF/sam/drivers/wdt</Value>
       <Value>../src/ASF/sam/services/flash_efc</Value>
       <Value>../src/ASF/sam/utils</Value>
-      <Value>../src/ASF/sam/utils/cmsis/sam4cm/include</Value>
-      <Value>../src/ASF/sam/utils/cmsis/sam4cm/source/templates</Value>
+      <Value>../src/ASF/sam/utils/fpu</Value>
+      <Value>../src/ASF/sam/utils/cmsis/samg/samg55/include</Value>
+      <Value>../src/ASF/sam/utils/cmsis/samg/samg55/source/templates</Value>
       <Value>../src/ASF/sam/utils/header_files</Value>
       <Value>../src/ASF/sam/utils/preprocessor</Value>
       <Value>../src/ASF/thirdparty/CMSIS/Include</Value>
@@ -646,6 +697,13 @@
       <Value>../src/phy</Value>
       <Value>../src/lcd</Value>
       <Value>../src/spip</Value>
+      <Value>../src/ASF/sam/drivers/matrix</Value>
+      <Value>../src/ASF/common/services/usb</Value>
+      <Value>../src/ASF/common/services/usb/class/cdc</Value>
+      <Value>../src/Config</Value>
+      <Value>../src/ASF/common/services/usb/class/cdc/device</Value>
+      <Value>../src/ASF/common/services/usb/udc</Value>
+      <Value>../src/ASF/sam/drivers/udp</Value>
     </ListValues>
   </armgcc.compiler.directories.IncludePaths>
   <armgcc.compiler.optimization.OtherFlags>-fdata-sections</armgcc.compiler.optimization.OtherFlags>
@@ -708,8 +766,8 @@
       <Value>../src/ASF/sam/drivers/wdt</Value>
       <Value>../src/ASF/sam/services/flash_efc</Value>
       <Value>../src/ASF/sam/utils</Value>
-      <Value>../src/ASF/sam/utils/cmsis/sam4cm/include</Value>
-      <Value>../src/ASF/sam/utils/cmsis/sam4cm/source/templates</Value>
+      <Value>../src/ASF/sam/utils/cmsis/samg/samg55/include</Value>
+      <Value>../src/ASF/sam/utils/cmsis/samg/samg55/source/templates</Value>
       <Value>../src/ASF/sam/utils/header_files</Value>
       <Value>../src/ASF/sam/utils/preprocessor</Value>
       <Value>../src/ASF/thirdparty/CMSIS/Include</Value>
@@ -718,10 +776,17 @@
       <Value>../src/ASF/thirdparty/freertos/freertos-7.3.0/source/portable/gcc/sam</Value>
       <Value>../src/ASF/thirdparty/prime_ng/hal</Value>
       <Value>../src</Value>
+      <Value>../src/ASF/sam/drivers/matrix</Value>
+      <Value>../src/ASF/common/services/usb</Value>
+      <Value>../src/ASF/common/services/usb/class/cdc</Value>
+      <Value>../src/Config</Value>
+      <Value>../src/ASF/common/services/usb/class/cdc/device</Value>
+      <Value>../src/ASF/common/services/usb/udc</Value>
+      <Value>../src/ASF/sam/drivers/udp</Value>
     </ListValues>
   </armgcc.assembler.general.IncludePaths>
   <armgcc.assembler.debugging.DebugLevel>Default (-g)</armgcc.assembler.debugging.DebugLevel>
-  <armgcc.preprocessingassembler.general.AssemblerFlags>-DARM_MATH_CM4=true -DBOARD=ATPL360MB -D__ATPL360B__ -D__FREERTOS__ -D__SAM4CMS16C_0__ -Dprintf=iprintf -Dscanf=iscanf</armgcc.preprocessingassembler.general.AssemblerFlags>
+  <armgcc.preprocessingassembler.general.AssemblerFlags>-DARM_MATH_CM4=true -DBOARD=ATPL360MB -D__ATPL360B__ -D__FREERTOS__ -D__SAM4CMS16C_0__ -Dprintf=iprintf -Dscanf=iscanf -DUDD_ENABLE</armgcc.preprocessingassembler.general.AssemblerFlags>
   <armgcc.preprocessingassembler.general.IncludePaths>
     <ListValues>
       <Value>../..</Value>
@@ -773,6 +838,13 @@
       <Value>../src/ASF/thirdparty/freertos/freertos-7.3.0/source/portable/gcc/sam</Value>
       <Value>../src/ASF/thirdparty/prime_ng/hal</Value>
       <Value>../src</Value>
+      <Value>../src/ASF/sam/drivers/matrix</Value>
+      <Value>../src/ASF/common/services/usb</Value>
+      <Value>../src/ASF/common/services/usb/class/cdc</Value>
+      <Value>../src/Config</Value>
+      <Value>../src/ASF/common/services/usb/class/cdc/device</Value>
+      <Value>../src/ASF/common/services/usb/udc</Value>
+      <Value>../src/ASF/sam/drivers/udp</Value>
     </ListValues>
   </armgcc.preprocessingassembler.general.IncludePaths>
   <armgcc.preprocessingassembler.debugging.DebugLevel>Default (-Wa,-g)</armgcc.preprocessingassembler.debugging.DebugLevel>
@@ -829,8 +901,19 @@
       <Link>src\ASF\common\components\plc\atpl360\atpl360_hal_spi.c</Link>
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\ASF\common\services\clock\sam4cm\sysclk.c">
-      <Link>src\ASF\common\services\clock\sam4cm\sysclk.c</Link>
+    <Compile Include="src\ASF\common\services\clock\samg\genclk.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\common\services\clock\samg\osc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\common\services\clock\samg\pll.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\common\services\clock\samg\sysclk.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\common\services\clock\samg\sysclk.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\ASF\common\services\delay\sam\cycle_counter.c">
@@ -845,6 +928,48 @@
       <Link>src\ASF\common\services\sleepmgr\sam\sleepmgr.c</Link>
       <SubType>compile</SubType>
     </Compile>
+    <None Include="atmel_devices_cdc.cat">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="atmel_devices_cdc.inf">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\common\services\usb\usb_atmel.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\common\services\usb\usb_protocol.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\common\services\usb\class\cdc\usb_protocol_cdc.h">
+      <SubType>compile</SubType>
+    </None>
+    <Compile Include="src\ASF\common\services\usb\class\cdc\device\udi_cdc.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <None Include="src\ASF\common\services\usb\class\cdc\device\udi_cdc.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\common\services\usb\class\cdc\device\udi_cdc_conf.h">
+      <SubType>compile</SubType>
+    </None>
+    <Compile Include="src\ASF\common\services\usb\class\cdc\device\udi_cdc_desc.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\common\services\usb\udc\udc.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <None Include="src\ASF\common\services\usb\udc\udc.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\common\services\usb\udc\udd.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\common\services\usb\udc\udc_desc.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\common\services\usb\udc\udi.h">
+      <SubType>compile</SubType>
+    </None>
     <Compile Include="src\ASF\common\utils\interrupt\interrupt_sam_nvic.c">
       <Link>src\ASF\common\utils\interrupt\interrupt_sam_nvic.c</Link>
       <SubType>compile</SubType>
@@ -857,18 +982,35 @@
       <Link>src\ASF\common\utils\stdio\write.c</Link>
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\ASF\sam\drivers\aes\aes.c">
-      <Link>src\ASF\sam\drivers\aes\aes.c</Link>
+    <Compile Include="src\ASF\sam\boards\pl360g55cf_ek\init.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\boards\pl360g55cf_ek\led.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\boards\pl360g55cf_ek\pl360g55cf_ek.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\ASF\sam\drivers\efc\efc.c">
       <Link>src\ASF\sam\drivers\efc\efc.c</Link>
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="src\ASF\sam\drivers\flexcom\flexcom.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\drivers\flexcom\flexcom.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="src\ASF\sam\drivers\gpbr\gpbr.c">
       <Link>src\ASF\sam\drivers\gpbr\gpbr.c</Link>
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="src\ASF\sam\drivers\matrix\matrix.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <None Include="src\ASF\sam\drivers\matrix\matrix.h">
+      <SubType>compile</SubType>
+    </None>
     <Compile Include="src\ASF\sam\drivers\pdc\pdc.c">
       <Link>src\ASF\sam\drivers\pdc\pdc.c</Link>
       <SubType>compile</SubType>
@@ -905,18 +1047,16 @@
       <Link>src\ASF\sam\drivers\tc\tc.c</Link>
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\ASF\sam\drivers\trng\trng.c">
-      <Link>src\ASF\sam\drivers\trng\trng.c</Link>
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="src\ASF\sam\drivers\twi\twi.c">
       <Link>src\ASF\sam\drivers\twi\twi.c</Link>
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\ASF\sam\drivers\uart\uart.c">
-      <Link>src\ASF\sam\drivers\uart\uart.c</Link>
+    <Compile Include="src\ASF\sam\drivers\udp\udp_device.c">
       <SubType>compile</SubType>
     </Compile>
+    <None Include="src\ASF\sam\drivers\udp\udp_device.h">
+      <SubType>compile</SubType>
+    </None>
     <Compile Include="src\ASF\sam\drivers\usart\usart.c">
       <Link>src\ASF\sam\drivers\usart\usart.c</Link>
       <SubType>compile</SubType>
@@ -929,19 +1069,299 @@
       <Link>src\ASF\sam\services\flash_efc\flash_efc.c</Link>
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\ASF\sam\utils\cmsis\sam4cm\source\templates\gcc\startup_sam4cm.c">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\source\templates\gcc\startup_sam4cm.c</Link>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\component\adc.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\ASF\sam\utils\cmsis\sam4cm\source\templates\system_sam4cm.c">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\source\templates\system_sam4cm.c</Link>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\component\chipid.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\component\cmcc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\component\crccu.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\component\efc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\component\flexcom.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\component\gpbr.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\component\i2sc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\component\matrix.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\component\mem2mem.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\component\pdc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\component\pdmic.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\component\pio.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\component\pmc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\component\rstc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\component\rtc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\component\rtt.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\component\spi.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\component\supc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\component\tc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\component\twi.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\component\udp.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\component\uhp.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\component\usart.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\component\wdt.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\instance\adc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\instance\chipid.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\instance\cmcc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\instance\crccu.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\instance\efc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\instance\flexcom0.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\instance\flexcom1.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\instance\flexcom2.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\instance\flexcom3.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\instance\flexcom4.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\instance\flexcom5.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\instance\flexcom6.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\instance\flexcom7.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\instance\gpbr.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\instance\i2sc0.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\instance\i2sc1.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\instance\matrix.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\instance\mem2mem.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\instance\pdmic0.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\instance\pdmic1.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\instance\pioa.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\instance\piob.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\instance\pmc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\instance\rstc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\instance\rtc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\instance\rtt.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\instance\spi0.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\instance\spi1.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\instance\spi2.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\instance\spi3.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\instance\spi4.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\instance\spi5.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\instance\spi6.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\instance\spi7.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\instance\supc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\instance\tc0.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\instance\tc1.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\instance\twi0.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\instance\twi1.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\instance\twi2.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\instance\twi3.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\instance\twi4.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\instance\twi5.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\instance\twi6.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\instance\twi7.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\instance\udp.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\instance\uhp.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\instance\usart0.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\instance\usart1.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\instance\usart2.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\instance\usart3.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\instance\usart4.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\instance\usart5.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\instance\usart6.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\instance\usart7.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\instance\wdt.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\pio\samg55g18.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\pio\samg55g19.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\pio\samg55j18.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\pio\samg55j19.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\pio\samg55n19.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\samg55.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\samg55g18.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\samg55g19.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\samg55j18.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\samg55j19.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\samg55n19.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\include\system_samg55.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\source\templates\gcc\startup_samg55.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\cmsis\samg\samg55\source\templates\system_samg55.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\fpu\fpu.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam\utils\make\board.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\ASF\sam\utils\syscalls\gcc\syscalls.c">
       <Link>src\ASF\sam\utils\syscalls\gcc\syscalls.c</Link>
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\ASF\thirdparty\common\boards\board.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\ASF\thirdparty\freertos\freertos-7.3.0\source\FreeRTOS_CLI.c">
@@ -1032,33 +1452,23 @@
       <SubType>compile</SubType>
       <Link>src\ASF\thirdparty\prime_ng\hal\hal_usart.c</Link>
     </Compile>
+    <Compile Include="src\ASF\thirdparty\prime_ng\hal\hal_usb.c">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="src\ASF\thirdparty\prime_ng\hal\hal_usi.c">
       <Link>src\ASF\thirdparty\prime_ng\hal\hal_usi.c</Link>
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\lcd\lcd.c">
+    <Compile Include="src\ASF\thirdparty\prime_ng\phy\atpl360\apps\phy_tx_test_console\samg55j19_pl360g55cf_ek\atpl_bin.S">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\lcd\lcd.h">
+    <Compile Include="src\ASF\thirdparty\prime_ng\phy\atpl360\apps\phy_tx_test_console\samg55j19_pl360g55cf_ek\conf_app_example.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\ASF\config\atpl_bin.S">
-      <Link>src\ASF\thirdparty\prime_ng\phy\atpl360\apps\phy_tx_test_console\sam4cms16c_atpl360mb\atpl_bin.S</Link>
+    <Compile Include="src\ASF\thirdparty\prime_ng\phy\atpl360\apps\phy_tx_test_console\samg55j19_pl360g55cf_ek\conf_usi.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\ASF\sam\boards\atpl360mb\atpl360mb.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\ASF\sam\boards\atpl360mb\init.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\ASF\sam\boards\atpl360mb\led.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\ASF\sam\components\display\c0216CiZ\c0216CiZ.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\ASF\sam\components\display\c0216CiZ\c0216CiZ.h">
+    <Compile Include="src\config\conf_usb.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\boot.c">
@@ -1180,22 +1590,6 @@
       <Link>src\ASF\common\services\clock\pll.h</Link>
       <SubType>compile</SubType>
     </None>
-    <None Include="src\ASF\common\services\clock\sam4cm\genclk.h">
-      <Link>src\ASF\common\services\clock\sam4cm\genclk.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\common\services\clock\sam4cm\osc.h">
-      <Link>src\ASF\common\services\clock\sam4cm\osc.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\common\services\clock\sam4cm\pll.h">
-      <Link>src\ASF\common\services\clock\sam4cm\pll.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\common\services\clock\sam4cm\sysclk.h">
-      <Link>src\ASF\common\services\clock\sam4cm\sysclk.h</Link>
-      <SubType>compile</SubType>
-    </None>
     <None Include="src\ASF\common\services\clock\sysclk.h">
       <Link>src\ASF\common\services\clock\sysclk.h</Link>
       <SubType>compile</SubType>
@@ -1272,12 +1666,7 @@
       <Link>src\ASF\common\utils\stdio\stdio_serial\stdio_serial.h</Link>
       <SubType>compile</SubType>
     </None>
-    <None Include="src\ASF\sam\drivers\aes\aes.h">
-      <Link>src\ASF\sam\drivers\aes\aes.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\drivers\aes\example\aes_example.h">
-      <Link>src\ASF\sam\drivers\aes\example\aes_example.h</Link>
+    <None Include="src\ASF\sam\boards\pl360g55cf_ek\debug_script\iar\pl360g55cf_ek_flash.mac">
       <SubType>compile</SubType>
     </None>
     <None Include="src\ASF\sam\drivers\efc\efc.h">
@@ -1332,16 +1721,8 @@
       <Link>src\ASF\sam\drivers\tc\tc.h</Link>
       <SubType>compile</SubType>
     </None>
-    <None Include="src\ASF\sam\drivers\trng\trng.h">
-      <Link>src\ASF\sam\drivers\trng\trng.h</Link>
-      <SubType>compile</SubType>
-    </None>
     <None Include="src\ASF\sam\drivers\twi\twi.h">
       <Link>src\ASF\sam\drivers\twi\twi.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\drivers\uart\uart.h">
-      <Link>src\ASF\sam\drivers\uart\uart.h</Link>
       <SubType>compile</SubType>
     </None>
     <None Include="src\ASF\sam\drivers\usart\usart.h">
@@ -1356,338 +1737,6 @@
       <Link>src\ASF\sam\services\flash_efc\flash_efc.h</Link>
       <SubType>compile</SubType>
     </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\component\adc.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\component\adc.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\component\aes.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\component\aes.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\component\chipid.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\component\chipid.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\component\cmcc.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\component\cmcc.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\component\efc.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\component\efc.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\component\gpbr.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\component\gpbr.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\component\icm.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\component\icm.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\component\ipc.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\component\ipc.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\component\matrix.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\component\matrix.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\component\pdc.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\component\pdc.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\component\pio.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\component\pio.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\component\pmc.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\component\pmc.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\component\pwm.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\component\pwm.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\component\rstc.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\component\rstc.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\component\rswdt.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\component\rswdt.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\component\rtc.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\component\rtc.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\component\rtt.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\component\rtt.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\component\slcdc.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\component\slcdc.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\component\smc.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\component\smc.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\component\spi.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\component\spi.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\component\supc.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\component\supc.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\component\tc.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\component\tc.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\component\trng.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\component\trng.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\component\twi.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\component\twi.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\component\uart.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\component\uart.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\component\usart.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\component\usart.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\component\wdt.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\component\wdt.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\instance\adc.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\instance\adc.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\instance\aes.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\instance\aes.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\instance\chipid.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\instance\chipid.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\instance\cmcc0.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\instance\cmcc0.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\instance\cmcc1.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\instance\cmcc1.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\instance\efc.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\instance\efc.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\instance\gpbr.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\instance\gpbr.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\instance\icm.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\instance\icm.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\instance\ipc0.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\instance\ipc0.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\instance\ipc1.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\instance\ipc1.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\instance\matrix0.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\instance\matrix0.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\instance\matrix1.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\instance\matrix1.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\instance\pioa.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\instance\pioa.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\instance\piob.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\instance\piob.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\instance\pioc.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\instance\pioc.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\instance\pmc.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\instance\pmc.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\instance\pwm.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\instance\pwm.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\instance\rstc.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\instance\rstc.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\instance\rswdt.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\instance\rswdt.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\instance\rtc.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\instance\rtc.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\instance\rtt.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\instance\rtt.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\instance\slcdc.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\instance\slcdc.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\instance\smc0.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\instance\smc0.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\instance\smc1.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\instance\smc1.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\instance\spi0.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\instance\spi0.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\instance\spi1.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\instance\spi1.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\instance\supc.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\instance\supc.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\instance\tc0.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\instance\tc0.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\instance\tc1.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\instance\tc1.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\instance\trng.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\instance\trng.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\instance\twi0.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\instance\twi0.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\instance\twi1.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\instance\twi1.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\instance\uart0.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\instance\uart0.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\instance\uart1.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\instance\uart1.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\instance\usart0.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\instance\usart0.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\instance\usart1.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\instance\usart1.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\instance\usart2.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\instance\usart2.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\instance\usart3.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\instance\usart3.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\instance\wdt.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\instance\wdt.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\pio\sam4cmp16c.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\pio\sam4cmp16c.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\pio\sam4cmp8c.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\pio\sam4cmp8c.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\pio\sam4cms16c.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\pio\sam4cms16c.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\pio\sam4cms4c.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\pio\sam4cms4c.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\pio\sam4cms8c.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\pio\sam4cms8c.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\sam4cm.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\sam4cm.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\sam4cmp16c_0.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\sam4cmp16c_0.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\sam4cmp16c_1.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\sam4cmp16c_1.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\sam4cmp8c_0.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\sam4cmp8c_0.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\sam4cmp8c_1.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\sam4cmp8c_1.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\sam4cms16c_0.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\sam4cms16c_0.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\sam4cms16c_1.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\sam4cms16c_1.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\sam4cms4c_0.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\sam4cms4c_0.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\sam4cms4c_1.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\sam4cms4c_1.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\sam4cms8c_0.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\sam4cms8c_0.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\sam4cms8c_1.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\sam4cms8c_1.h</Link>
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\sam\utils\cmsis\sam4cm\include\system_sam4cm.h">
-      <Link>src\ASF\sam\utils\cmsis\sam4cm\include\system_sam4cm.h</Link>
-      <SubType>compile</SubType>
-    </None>
     <None Include="src\ASF\sam\utils\compiler.h">
       <Link>src\ASF\sam\utils\compiler.h</Link>
       <SubType>compile</SubType>
@@ -1696,8 +1745,10 @@
       <Link>src\ASF\sam\utils\header_files\io.h</Link>
       <SubType>compile</SubType>
     </None>
-    <None Include="src\ASF\sam\utils\linker_scripts\sam4cm\gcc\sam4cms16c_0_flash.ld">
-      <Link>src\ASF\sam\utils\linker_scripts\sam4cm\gcc\sam4cms16c_0_flash.ld</Link>
+    <None Include="src\ASF\sam\utils\linker_scripts\samg\samg55j19\gcc\flash.ld">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam\utils\linker_scripts\samg\samg55j19\iar\flash.icf">
       <SubType>compile</SubType>
     </None>
     <None Include="src\ASF\sam\utils\make\Makefile.sam.in">
@@ -1860,10 +1911,6 @@
       <Link>src\config\FreeRTOSConfig.h</Link>
       <SubType>compile</SubType>
     </None>
-    <None Include="src\ASF\config\conf_app_example.h">
-      <Link>src\ASF\thirdparty\prime_ng\phy\atpl360\apps\phy_tx_test_console\sam4cms16c_atpl360mb\conf_app_example.h</Link>
-      <SubType>compile</SubType>
-    </None>
     <None Include="src\ASF\config\conf_atpl360.h">
       <Link>src\config\conf_atpl360.h</Link>
       <SubType>compile</SubType>
@@ -1892,10 +1939,6 @@
       <Link>src\config\conf_uart_serial.h</Link>
       <SubType>compile</SubType>
     </None>
-    <None Include="src\ASF\config\conf_usi.h">
-      <Link>src\ASF\thirdparty\prime_ng\phy\atpl360\apps\phy_tx_test_console\sam4cms16c_atpl360mb\conf_usi.h</Link>
-      <SubType>compile</SubType>
-    </None>
     <None Include="src\ASF\atpl\bin\ATPL360B_PRIME.bin">
       <SubType>compile</SubType>
     </None>
@@ -1920,7 +1963,7 @@
     <Folder Include="src\ASF\common\components\plc\atpl360\addons\serial_if\" />
     <Folder Include="src\ASF\common\services\" />
     <Folder Include="src\ASF\common\services\clock\" />
-    <Folder Include="src\ASF\common\services\clock\sam4cm\" />
+    <Folder Include="src\ASF\common\services\clock\samg" />
     <Folder Include="src\ASF\common\services\delay\" />
     <Folder Include="src\ASF\common\services\delay\sam\" />
     <Folder Include="src\ASF\common\services\gpio\" />
@@ -1933,6 +1976,11 @@
     <Folder Include="src\ASF\common\services\sleepmgr\sam\" />
     <Folder Include="src\ASF\common\services\twi\" />
     <Folder Include="src\ASF\common\services\twi\sam_twi\" />
+    <Folder Include="src\ASF\common\services\usb\" />
+    <Folder Include="src\ASF\common\services\usb\class\" />
+    <Folder Include="src\ASF\common\services\usb\class\cdc\" />
+    <Folder Include="src\ASF\common\services\usb\class\cdc\device\" />
+    <Folder Include="src\ASF\common\services\usb\udc\" />
     <Folder Include="src\ASF\common\utils\" />
     <Folder Include="src\ASF\common\utils\interrupt\" />
     <Folder Include="src\ASF\common\utils\stdio\" />
@@ -1940,15 +1988,16 @@
     <Folder Include="src\ASF\atpl" />
     <Folder Include="src\ASF\sam\" />
     <Folder Include="src\ASF\sam\boards\" />
-    <Folder Include="src\ASF\sam\boards\atpl360mb\" />
+    <Folder Include="src\ASF\sam\boards\pl360g55cf_ek" />
+    <Folder Include="src\ASF\sam\boards\pl360g55cf_ek\debug_script" />
+    <Folder Include="src\ASF\sam\boards\pl360g55cf_ek\debug_script\iar" />
     <Folder Include="src\ASF\sam\components\" />
     <Folder Include="src\ASF\sam\components\display\" />
-    <Folder Include="src\ASF\sam\components\display\c0216CiZ\" />
     <Folder Include="src\ASF\sam\drivers\" />
-    <Folder Include="src\ASF\sam\drivers\aes\" />
-    <Folder Include="src\ASF\sam\drivers\aes\example\" />
     <Folder Include="src\ASF\sam\drivers\efc\" />
     <Folder Include="src\ASF\sam\drivers\gpbr\" />
+    <Folder Include="src\ASF\sam\drivers\flexcom" />
+    <Folder Include="src\ASF\sam\drivers\matrix\" />
     <Folder Include="src\ASF\sam\drivers\pdc\" />
     <Folder Include="src\ASF\sam\drivers\pdc\pdc_uart_example\" />
     <Folder Include="src\ASF\sam\drivers\pio\" />
@@ -1958,28 +2007,31 @@
     <Folder Include="src\ASF\sam\drivers\spi\" />
     <Folder Include="src\ASF\sam\drivers\supc\" />
     <Folder Include="src\ASF\sam\drivers\tc\" />
-    <Folder Include="src\ASF\sam\drivers\trng\" />
     <Folder Include="src\ASF\sam\drivers\twi\" />
-    <Folder Include="src\ASF\sam\drivers\uart\" />
+    <Folder Include="src\ASF\sam\drivers\udp\" />
     <Folder Include="src\ASF\sam\drivers\usart\" />
     <Folder Include="src\ASF\sam\drivers\wdt\" />
     <Folder Include="src\ASF\sam\services\" />
     <Folder Include="src\ASF\sam\services\flash_efc\" />
     <Folder Include="src\ASF\sam\utils\" />
     <Folder Include="src\ASF\sam\utils\cmsis\" />
-    <Folder Include="src\ASF\sam\utils\cmsis\sam4cm\" />
-    <Folder Include="src\ASF\sam\utils\cmsis\sam4cm\include\" />
-    <Folder Include="src\ASF\sam\utils\cmsis\sam4cm\include\component\" />
-    <Folder Include="src\ASF\sam\utils\cmsis\sam4cm\include\instance\" />
-    <Folder Include="src\ASF\sam\utils\cmsis\sam4cm\include\pio\" />
-    <Folder Include="src\ASF\sam\utils\cmsis\sam4cm\source\" />
-    <Folder Include="src\ASF\sam\utils\cmsis\sam4cm\source\templates\" />
-    <Folder Include="src\ASF\sam\utils\cmsis\sam4cm\source\templates\gcc\" />
+    <Folder Include="src\ASF\sam\utils\cmsis\samg" />
+    <Folder Include="src\ASF\sam\utils\cmsis\samg\samg55" />
+    <Folder Include="src\ASF\sam\utils\cmsis\samg\samg55\include" />
+    <Folder Include="src\ASF\sam\utils\cmsis\samg\samg55\include\component" />
+    <Folder Include="src\ASF\sam\utils\cmsis\samg\samg55\include\instance" />
+    <Folder Include="src\ASF\sam\utils\cmsis\samg\samg55\include\pio" />
+    <Folder Include="src\ASF\sam\utils\cmsis\samg\samg55\source" />
+    <Folder Include="src\ASF\sam\utils\cmsis\samg\samg55\source\templates" />
+    <Folder Include="src\ASF\sam\utils\cmsis\samg\samg55\source\templates\gcc" />
     <Folder Include="src\ASF\sam\utils\header_files\" />
     <Folder Include="src\ASF\sam\utils\linker_scripts\" />
-    <Folder Include="src\ASF\sam\utils\linker_scripts\sam4cm\" />
-    <Folder Include="src\ASF\sam\utils\linker_scripts\sam4cm\gcc\" />
+    <Folder Include="src\ASF\sam\utils\linker_scripts\samg" />
+    <Folder Include="src\ASF\sam\utils\linker_scripts\samg\samg55j19" />
+    <Folder Include="src\ASF\sam\utils\linker_scripts\samg\samg55j19\gcc" />
+    <Folder Include="src\ASF\sam\utils\linker_scripts\samg\samg55j19\iar" />
     <Folder Include="src\ASF\sam\utils\make\" />
+    <Folder Include="src\ASF\sam\utils\fpu" />
     <Folder Include="src\ASF\sam\utils\preprocessor\" />
     <Folder Include="src\ASF\sam\utils\syscalls\" />
     <Folder Include="src\ASF\sam\utils\syscalls\gcc\" />
@@ -2005,10 +2057,9 @@
     <Folder Include="src\ASF\thirdparty\prime_ng\phy\atpl360\" />
     <Folder Include="src\ASF\thirdparty\prime_ng\phy\atpl360\apps\" />
     <Folder Include="src\ASF\thirdparty\prime_ng\phy\atpl360\apps\phy_tx_test_console\" />
-    <Folder Include="src\ASF\thirdparty\prime_ng\phy\atpl360\apps\phy_tx_test_console\sam4cms16c_atpl360mb\" />
+    <Folder Include="src\ASF\thirdparty\prime_ng\phy\atpl360\apps\phy_tx_test_console\samg55j19_pl360g55cf_ek" />
     <Folder Include="src\config\" />
     <Folder Include="src\console" />
-    <Folder Include="src\lcd" />
     <Folder Include="src\spip" />
     <Folder Include="src\phy" />
     <Folder Include="src\util" />

@@ -50,7 +50,7 @@ on_pdu(spip_iface_t *iface, struct spip_pdu *pdu, void *userdata)
     case SPIP_COMMAND_LCD:
       if (pdu->size == 18) {
         pdu->data[17] = 0;
-        lcd_puts(pdu->data[0], (const char *) pdu->data + 1);
+        //lcd_puts(pdu->data[0], (const char *) pdu->data + 1);
       }
       break;
       

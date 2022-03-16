@@ -37,7 +37,7 @@
 
 #include <boot.h>
 #include <ctype.h>
-#include <lcd.h>
+//#include <lcd.h>
 
 /************************** Phy layer parameters ****************************/
 #define ATPL360_BINARY_ADDRESS                     0x010E0000
@@ -165,7 +165,7 @@ static void
 _tx_result_handler(tx_cfm_t *px_tx_result)
 {
   if (px_tx_result->uc_tx_result != TX_RESULT_SUCCESS)
-    lcd_printf(1, "TX ERROR: %d", px_tx_result->uc_tx_result);
+    {}//lcd_printf(1, "TX ERROR: %d", px_tx_result->uc_tx_result);
 }
 
 static void 

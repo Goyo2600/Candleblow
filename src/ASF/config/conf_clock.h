@@ -54,7 +54,7 @@
 /* #define CONFIG_SYSCLK_SOURCE        SYSCLK_SRC_MAINCK_XTAL */
 /* #define CONFIG_SYSCLK_SOURCE        SYSCLK_SRC_MAINCK_BYPASS */
 /* #define CONFIG_SYSCLK_SOURCE        SYSCLK_SRC_PLLACK */
-#define CONFIG_SYSCLK_SOURCE        SYSCLK_SRC_PLLBCK
+#define CONFIG_SYSCLK_SOURCE			SYSCLK_SRC_PLLACK
 
 /* ===== System Clock (MCK) Prescaler Options   (Fmck = Fsys / (SYSCLK_PRES)) */
 #define CONFIG_SYSCLK_PRES          SYSCLK_PRES_1
@@ -68,12 +68,16 @@
 
 /* ===== PLL0 (A) Options   (8.192M = (32.768K * 250) / 1) */
 /* #define CONFIG_PLL0_SOURCE          PLLA_SRC_SLCK_32K_XTAL */
+#define CONFIG_PLL0_SOURCE          PLL_SRC_SLCK_XTAL
+#define CONFIG_PLL0_MUL             2930
+#define CONFIG_PLL0_DIV             1
 
 /* ===== PLL1 (B) Options   (Fpll = (Fclk * PLL_mul) / PLL_div) */
 /* Use mul and div effective values here. */
-#define CONFIG_PLL1_SOURCE          PLLB_SRC_MAINCK_XTAL
-#define CONFIG_PLL1_MUL             (240000000UL / BOARD_FREQ_MAINCK_BYPASS)
-#define CONFIG_PLL1_DIV             2
+#define CONFIG_PLL1_SOURCE          PLL_SRC_SLCK_XTAL
+#define CONFIG_PLL1_MUL             1465
+#define CONFIG_PLL1_DIV             1
+
 
 /* ===== Coprocessor System Clock (CPMCK) Options */
 /* Fcpmck = Fcpclk_source / CPCLK_PRES */
@@ -91,6 +95,10 @@
 
 /* Coprocessor System Clock Prescaler Options (CPCLK_PRES may be 1 to 16). */
 #define CONFIG_CPCLK_PRES           1
+
+#define CONFIG_USBCLK_SOURCE        USBCLK_SRC_PLL1
+#define CONFIG_USBCLK_DIV           1
+
 
 /* ===== Main processor frequency (MCK) */
 /* - XTAL frequency: 8MHz */

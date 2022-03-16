@@ -127,10 +127,10 @@ tx_task_func(void *userdata)
       phy_reset_params();
       
     if (!phy_send_data(&task->template, msg->data, msg->size))
-      lcd_puts(1, "PHY TX ERROR");
+      {}//lcd_puts(1, "PHY TX ERROR");
       
     if (!tx_frame_return(msg))
-      lcd_printf(1, "!RET%p", msg);
+      {}//lcd_printf(1, "!RET%p", msg);
   }
 }
 

@@ -32,7 +32,7 @@
 
 #include <app.h>
 #include <console.h>
-#include <lcd.h>
+//#include <lcd.h>
 
 #include <phy.h>
 #include <tx-task.h>
@@ -54,7 +54,7 @@ hang(void)
   unsigned int cntr = 0xffffff;
   volatile unsigned int i;
   
-  lcd_puts(0, "panic: hang");
+//  lcd_puts(0, "panic: hang");
   
   LED_Off(LED0);
   
@@ -154,7 +154,10 @@ app_init(void)
       tskIDLE_PRIORITY + 1,
       &app_task_handle);
   } else {
-    lcd_puts(0, "TX init fail");
+//    lcd_puts(0, "TX init fail");
+	LED_Off(LED0);
+	LED_Off(LED1);
+
     hang();
   }   
 }
@@ -181,7 +184,7 @@ hardware_init(void)
   led_blink(10);
   
   /* Initialize LCD */
-  lcd_init();
+  //lcd_init();
   
   /* Initialize watchdog */
   watchdog_init();
