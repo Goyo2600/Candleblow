@@ -13,6 +13,6 @@ If the build is successful, now it's time to plug the ARM Programmer to your com
 
 ![](https://raw.githubusercontent.com/TarlogicSecurity/Candleblow/main/doc/atmel2.png)
 
-The board has not LCD display, it uses LEDS for status.
-1 LED ON == OK -> You are ready to use Candleblow with PLCTool. 
+The board has not LCD display, it uses LEDS for status.<br/>
+1 LED ON == OK -> You are ready to use Candleblow with PLCTool.<br/>
 Blink LEDS or no LED == ERROR
