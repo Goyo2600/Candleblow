@@ -1,8 +1,8 @@
 # Candleblow
-Sniffing firmware for Microchip's ATPL360-EK evaluation kit, to use in conjunction with [PLCTool](https://github.com/TarlogicSecurity/PLCTool).
+Sniffing firmware for Microchip's PL360G55CF-EK evaluation kit, to use in conjunction with [PLCTool](https://github.com/TarlogicSecurity/PLCTool).
 
 ## Requirements 
-You will need to install the latest version version of [Atmel Studio 7](https://www.microchip.com/mplab/avr-support/avr-and-sam-downloads-archive) (Windows only). You will also need an unexpensive 20-pin JTAG ARM programmer [like this one](https://www.amazon.es/Gen%C3%A9rico-depurador-soporte-Ortex-M3-reemplazo/dp/B086RJZXGJ/ref=sr_1_4?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=Jtag+Usb+arm&qid=1606856754&sr=8-4) and, of course, the [ATPL360-EK](https://www.microchip.com/DevelopmentTools/ProductDetails/PartNo/ATPL360-EK?utm_source=MicroSolutions&utm_medium=Article&utm_content=DevTools&utm_campaign=StandAlone)
+You will need to install the latest version version of [Atmel Studio 7](https://www.microchip.com/mplab/avr-support/avr-and-sam-downloads-archive) (Windows only). You will also need an unexpensive 20-pin JTAG ARM programmer [like this one](https://www.amazon.es/Gen%C3%A9rico-depurador-soporte-Ortex-M3-reemplazo/dp/B086RJZXGJ/ref=sr_1_4?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=Jtag+Usb+arm&qid=1606856754&sr=8-4) and, of course, the [PL360G55CF-EK -EK]https://www.microchip.com/en-us/development-tool/PL360G55CF-EK)
 
 ## Build
 Open the solution file `Candleblow.atsln` with Atmel Studio 7 and press F7. This should start the build process:
@@ -13,4 +13,6 @@ If the build is successful, now it's time to plug the ARM Programmer to your com
 
 ![](https://raw.githubusercontent.com/TarlogicSecurity/Candleblow/main/doc/atmel2.png)
 
-If the board's LCD displays a message saying `Probe ready :)`, congratulations! You are ready to use Candleblow with PLCTool. 
+The board has not LCD display, it uses LEDS for status.
+1 LED ON == OK -> You are ready to use Candleblow with PLCTool. 
+Blink LEDS or no LED == ERROR
